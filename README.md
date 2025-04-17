@@ -1,1 +1,6 @@
 Final Project for EECS 398: Practical Data Science Created by Sophia Papadopoulos and Leo Udell
+# Recipes :)
+
+**Name(s)**: Sophia Papadopoulos
+
+**Website Link**: (your website link)

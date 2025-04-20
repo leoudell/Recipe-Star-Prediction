@@ -68,3 +68,8 @@ What is the average rating for a recipe based on its "complexity"? We have defin
 
 
 # Final Model
+In the baseline model, we used the raw values of `n_ingredients`, `minutes`, and `n_steps` in order to predict the `rating`. This method was not robust to the large outliers that we found in the dataset. In order to account for this, we added features that stanardized the data while still keeping the complexity of a recipe intact. 
+
+**New Features**
+1. **QuantitativeTransformer**: We utlized this transformer on all of the columns from the baseline model to account for the extreme outliers. Since the scale we are predicting is quite small, it's important that the
+2.**PolynomialFeatures**

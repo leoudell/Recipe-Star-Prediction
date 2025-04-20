@@ -28,7 +28,7 @@ Picture this. You come home from a long day at work at the world's best data sci
 This plot shows the distribution of ratings between recipes. As shown by the plot, most of the recipes have a 5-star rating. There are also a few recipes with a 0 rating, indicating that the user did not leave a rating for their posted comment. This does not mean that the user rated the recipe poorly, but that they chose not to rate the recipe. Given our goal, keeping these 0-star ratings would give inaccurate final results, so we chose to drop these recipes from our dataset. 
 
  <iframe
- src="assets/uniAnalysis.html"
+ src="assests/uniAnalysis.html"
  width="800"
  height="600"
  frameborder="0"
@@ -38,7 +38,7 @@ This plot shows the distribution of ratings between recipes. As shown by the plo
 This plot measures the average rating, number of steps, and minutes to prepare each recipe in the dataset.
 
  <iframe
- src="assets/biAnalysis.html"
+ src="assests/biAnalysis.html"
  width="800"
  height="600"
  frameborder="0"

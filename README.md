@@ -59,10 +59,12 @@ When constructing the bivariate analysis of the dataset, we were curious about t
 | chocolate chunk vanilla cake | 72000 | 10 | 9 | 4 |
 
 ## Imputation
-While cleaning the data, we found that there are no missing values in the dataset. For some recipes, there are 0 ratings for that recipe and that would then be converted to a NAN value. Due to the model we created, the recipes with zero reviews are not useful and were removed. 
+While cleaning the data, we found that there are no missing values in the dataset. For some recipes, there are 0 ratings for that recipe, and that would then be converted to a NAN value. Due to the model we created, the recipes with zero reviews are not useful and were removed. 
 # Problem Identification
 What is the average rating for a recipe based on its "complexity"? We have defined recipe "complexity" as the number of ingredients, the number of minutes it takes to complete, and the number of steps included. In order to do this, we constructed a regression model to predict the recipe's start rating of 0 - 5. 
-
+**Type of Problem:** Our goal was to predict a numerical value: the average recipe rating based on complexity. Since this rating is a continuous variable, we were dealing with a regression problem rather than a classification problem.
+**Evaluation Metric:** We used Mean Squared Error (MSE) as our primary evaluation metric. MSE is well-suited for regression tasks because it directly measures the squared difference between predicted ratings and actual ratings. MSE penalizes large errors and prioritizes accuracy on recipes that would otherwise be error-prone. This was particularly useful in our case due to the several extremely long recipes.
 # Baseline Model
+
 
 # Final Model

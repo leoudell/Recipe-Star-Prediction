@@ -8,6 +8,7 @@
 Picture this. You come home from a long day at work at the world's best data science company. All you want is a quick bite, but what are the odds this meal will be 5 stars? What is the relation between complexity and star ratings? This analysis explores a dataset of over 730,000 reviews on food.com to determine the relationship between highly rated recipes and recipe complexity. We have defined how complex a recipe can be based on how long it takes to prep and cook, the number of different ingredients, and the number of steps. By analyzing this complexity, we can help chefs optimize the complexity of their recipes for better ratings and different audiences.
 
 **Total Rows in Dataset:** 
+
 | Column Recipe in Dataset   | Description |
 |-------------|-------|
 | 'name'   | Recipe name|
@@ -35,10 +36,10 @@ This plot shows the distribution of ratings between recipes. As shown by the plo
  ></iframe>
  
 ## Bivariate Analysis
-This plot measures the average rating, number of steps, and minutes to prepare each recipe in the dataset.
+This plot measures the average rating, number of steps, and minutes to prepare each recipe in the dataset. Typically, as the number of steps increases, so does the preparation time for the recipe. Low star ratings are scattered around the plot, but most reviews have a 5-star rating. The plot itself is heavily skewed to the left, with most recipes not taking very long however, there are a few recipes that take over 200,000 minutes. 
 
  <iframe
- src="assests/biAnalysis.html"
+ src="assests/bivAnalysis.html"
  width="800"
  height="600"
  frameborder="0"

@@ -65,7 +65,15 @@ What is the average rating for a recipe based on its "complexity"? We have defin
 **Type of Problem:** Our goal was to predict a numerical value: the average recipe rating based on complexity. Since this rating is a continuous variable, we were dealing with a regression problem rather than a classification problem.
 **Evaluation Metric:** We used Mean Squared Error (MSE) as our primary evaluation metric. MSE is well-suited for regression tasks because it directly measures the squared difference between predicted ratings and actual ratings. MSE penalizes large errors and prioritizes accuracy on recipes that would otherwise be error-prone. This was particularly useful in our case due to the several extremely long recipes.
 # Baseline Model
+For the baseline model, we chose to use a linear regression model to predict the ratings. We used three features from the recipes data set that were mentioned in our definition of complexity. 
+*Features*
+1. `n_ingredients` (quantitative): The number of ingredients a recipe requires
+2. `minutes` (quantitative): The number of minutes it takes to complete a recipe
+3. `n_steps` (quantitative): The number of steps it takes to complete a recipe
+Since all of the features selected here are quantitative, we did not have to perform any encoding.
 
+**Model Performance**<br>
+As stated, we evaluated the performance of our model using Mean Squared Error. The MSE of this model was approximently 0.505. In context to the rating scale, our model has a prediction error of about `sqrt(0.505) = 0.71`. This means that if a true rating is 3.0 our model will predict that the recipe is anywhere from 2.3 to 3.7 stars. This model is not great because there is such a large variance in the predictions. Part of this inaccuracy is due to the training data having ratings skewed heavily towards 4 and 5 stars. With transformations in the next steps, this model can be improved.
 
 # Final Model
 In the baseline model, we used the raw values of `n_ingredients`, `minutes`, and `n_steps` in order to predict the `rating`. This method was not robust to the large outliers that we found in the dataset. In order to account for this, we added features that stanardized the data while still keeping the complexity of a recipe intact. 
@@ -74,8 +82,8 @@ In the baseline model, we used the raw values of `n_ingredients`, `minutes`, and
 1. **QuantitativeTransformer**: We utlized this transformer on all of the columns from the baseline model to account for the extreme outliers. This created a uniform distribution of the data which was crucial for decreasing MSE. MSE is very susceptible to large outliers, and this transformer improved our results.
 2. **PolynomialFeatures**: A recipe’s complexity, as we defined it, doesn’t affect ratings in a strictly linear way. Very basic recipes might appeal to cooks looking for quick meals, while highly intricate ones cater to enthusiasts willing to invest more time. By adding polynomial terms, our model can flexibly fit these subtler patterns instead of forcing a purely linear relationship.
 
-**Modeling Algorithm & Hyperparameters**
+**Modeling Algorithm & Hyperparameters**:
 We decided to stick with the Linear Regression model because our newly added features account for outliers and adjusting the degree of predictions. For the hyperparameters, we tuned the PolynomialFeature degree. We utlized GridSearchCV to try all degrees between 1 and 9 inclusive. With that method, we found that the best degree was a degree 4 polynomial. 
 
-**Performance Enhancements**
+**Performance Enhancements**:
 As stated previously, our baseline model achieved an MSE of 0.505. Our new model achieved a modest improvement, reducing the MSE to 0.503. This final model adjusts for outliers, which was the main factor in decreasing the MSE, and produces predictions that are more accurate relative to the true center of the data. Moving forward, this outlier‑robust approach can be extended with additional regularization or alternative loss functions to further enhance model stability and predictive performance.

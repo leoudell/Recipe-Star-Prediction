@@ -71,5 +71,11 @@ What is the average rating for a recipe based on its "complexity"? We have defin
 In the baseline model, we used the raw values of `n_ingredients`, `minutes`, and `n_steps` in order to predict the `rating`. This method was not robust to the large outliers that we found in the dataset. In order to account for this, we added features that stanardized the data while still keeping the complexity of a recipe intact. 
 
 **New Features**
-1. **QuantitativeTransformer**: We utlized this transformer on all of the columns from the baseline model to account for the extreme outliers. Since the scale we are predicting is quite small, it's important that the
-2.**PolynomialFeatures**
+1. **QuantitativeTransformer**: We utlized this transformer on all of the columns from the baseline model to account for the extreme outliers. This created a uniform distribution of the data which was crucial for decreasing MSE. MSE is very susceptible to large outliers, and this transformer improved our results.
+2. **PolynomialFeatures**: A recipe’s complexity, as we defined it, doesn’t affect ratings in a strictly linear way. Very basic recipes might appeal to cooks looking for quick meals, while highly intricate ones cater to enthusiasts willing to invest more time. By adding polynomial terms, our model can flexibly fit these subtler patterns instead of forcing a purely linear relationship.
+
+**Modeling Algorithm & Hyperparameters**
+We decided to stick with the Linear Regression model because our newly added features account for outliers and adjusting the degree of predictions. For the hyperparameters, we tuned the PolynomialFeature degree. We utlized GridSearchCV to try all degrees between 1 and 9 inclusive. With that method, we found that the best degree was a degree 4 polynomial. 
+
+**Performance Enhancements**
+As stated previously, our baseline model achieved an MSE of 0.505. Our new model achieved a modest improvement, reducing the MSE to 0.503. This final model adjusts for outliers, which was the main factor in decreasing the MSE, and produces predictions that are more accurate relative to the true center of the data. Moving forward, this outlier‑robust approach can be extended with additional regularization or alternative loss functions to further enhance model stability and predictive performance.

@@ -2,7 +2,7 @@
 
 **Emails:** spapadop@umich.edu & leoudell@umich.edu
 
-**Website URL:**
+**Website URL:** https://leoudell.github.io/recipe-star-prediction/
 
 # Introduction 
 Picture this. You come home from a long day at work at the world's best data science company. All you want is a quick bite, but what are the odds this meal will be 5 stars? What is the relation between complexity and star ratings? This analysis explores a dataset of over 730,000 reviews on food.com to determine the relationship between highly rated recipes and recipe complexity. We have defined how complex a recipe can be based on how long it takes to prep and cook, the number of different ingredients, and the number of steps. By analyzing this complexity, we can help chefs optimize the complexity of their recipes for better ratings and different audiences.
@@ -49,6 +49,7 @@ This plot measures the average rating, number of steps, and minutes to prepare e
 When constructing the bivariate analysis of the dataset, we were curious about the recipes with the longest preparation time. We came across one recipe with a strange title. Taking over 1 million minutes, "How to Preserve a Husband" has 2 ingredients (cream and peaches) and 2 five-star reviews. 
 
 **Top 5 Longest Recipes:** 
+
 | name | minutes | n_steps | n_ingredients | rating|
 |---|-------|-------|-------|-------|                                                         
 | how to preserve a husband | 1051200 | 9 | 2 | 5 |

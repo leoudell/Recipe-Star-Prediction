@@ -65,7 +65,7 @@ What is the average rating for a recipe based on its "complexity"? We have defin
 **Type of Problem:** Our goal was to predict a numerical value: the average recipe rating based on complexity. Since this rating is a continuous variable, we were dealing with a regression problem rather than a classification problem.
 **Evaluation Metric:** We used Mean Squared Error (MSE) as our primary evaluation metric. MSE is well-suited for regression tasks because it directly measures the squared difference between predicted ratings and actual ratings. MSE penalizes large errors and prioritizes accuracy on recipes that would otherwise be error-prone. This was particularly useful in our case due to the several extremely long recipes.
 # Baseline Model
-For the baseline model, we chose to use a linear regression model to predict the ratings. We used three features from the recipes data set that were mentioned in our definition of complexity. 
+For the baseline model, we chose to use a linear regression model to predict the ratings. We used three features from the recipes data set that were mentioned in our definition of complexity. <br>
 *Features*
 1. `n_ingredients` (quantitative): The number of ingredients a recipe requires
 2. `minutes` (quantitative): The number of minutes it takes to complete a recipe

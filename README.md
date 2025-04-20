@@ -19,8 +19,9 @@ Picture this. You come home from a long day at work at the world's best data sci
 
 # Data Cleaning and Exploratory Data Analysis
 ## Data Cleaning
-1. Merging the Datasets
-2. 
+1. The Food.com data came in two separate CSV files, one for the recipes and one for the ratings. We performed an inner join of the recipes and ratings CSVs on the recipe_id field to ensure every rating in our merged set had a corresponding recipe record.
+2. We removed columns that were not needed for modeling like rating text and written steps. After column drops, we checked for NaNs across all remaining fields and found none. However, some ratings had 0 as a rating value; we dropped those rows before training.
+3. Our dataframe started around 731,000 rows with 17 columns, and we ended with 220,000 rows with 5 columns after cleaning.
 ## Univariate Analysis
 This plot shows the distribution of ratings between recipes. As shown by the plot, most of the recipes have a 5-star rating. There are also a few recipes with a 0 rating, indicating that the user did not leave a rating for their posted comment. This does not mean that the user rated the recipe poorly, but that they chose not to rate the recipe. Given our goal, keeping these 0-star ratings would give inaccurate final results, so we chose to drop these recipes from our dataset. 
 ## Bivariate Analysis

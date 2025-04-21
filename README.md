@@ -36,9 +36,18 @@ This plot shows the distribution of ratings between recipes. As shown by the plo
  ></iframe>
  
 ## Bivariate Analysis
-This plot measures the average rating, number of steps, and minutes to prepare each recipe in the dataset. Typically, as the number of steps increases, so does the preparation time for the recipe. Low star ratings are scattered around the plot, but most reviews have a 5-star rating. The plot itself is heavily skewed to the left, with most recipes not taking very long however, there are a few recipes that take over 200,000 minutes. 
+This plot measures the average rating, number of steps, and the number of ingredients in each recipe. Typically, as the number of steps increases, so does the preparation time for the recipe. Likewise, when the number of steps increase, so does the number of ingredients. 
 
- <iframe
+  <iframe
+ src="assests/bivAnalysisPT2.html"
+ width="800"
+ height="600"
+ frameborder="0"
+ ></iframe>
+
+This plot measures the average rating, number of steps, and minutes to prepare each recipe in the dataset. Both plots are heavily skewed to the left, with most recipes not taking very long; however, there are a few recipes that take over 200,000 minutes. 
+
+  <iframe
  src="assests/bivAnalysis.html"
  width="800"
  height="600"
@@ -62,8 +71,8 @@ When constructing the bivariate analysis of the dataset, we were curious about t
 While cleaning the data, we found that there are no missing values in the dataset. For some recipes, there are 0 ratings for that recipe, and that would then be converted to a NAN value. Due to the model we created, the recipes with zero reviews are not useful and were removed. 
 # Problem Identification
 What is the average rating for a recipe based on its "complexity"? We have defined recipe "complexity" as the number of ingredients, the number of minutes it takes to complete, and the number of steps included. In order to do this, we constructed a regression model to predict the recipe's start rating of 0 - 5. 
-**Type of Problem:** Our goal was to predict a numerical value: the average recipe rating based on complexity. Since this rating is a continuous variable, we were dealing with a regression problem rather than a classification problem.
-**Evaluation Metric:** We used Mean Squared Error (MSE) as our primary evaluation metric. MSE is well-suited for regression tasks because it directly measures the squared difference between predicted ratings and actual ratings. MSE penalizes large errors and prioritizes accuracy on recipes that would otherwise be error-prone. This was particularly useful in our case due to the several extremely long recipes.
+- **Type of Problem:** Our goal was to predict a numerical value: the average recipe rating based on complexity. Since this rating is a continuous variable, we were dealing with a regression problem rather than a classification problem.
+- **Evaluation Metric:** We used Mean Squared Error (MSE) as our primary evaluation metric. MSE is well-suited for regression tasks because it directly measures the squared difference between predicted ratings and actual ratings. MSE penalizes large errors and prioritizes accuracy on recipes that would otherwise be error-prone. This was particularly useful in our case due to the several extremely long recipes.
 # Baseline Model
 For the baseline model, we chose to use a linear regression model to predict the ratings. We used three features from the recipes data set that were mentioned in our definition of complexity. <br>
 *Features*
@@ -73,13 +82,13 @@ For the baseline model, we chose to use a linear regression model to predict the
 Since all of the features selected here are quantitative, we did not have to perform any encoding.
 
 **Model Performance**<br>
-As stated, we evaluated the performance of our model using Mean Squared Error. The MSE of this model was approximently 0.505. In context to the rating scale, our model has a prediction error of about `sqrt(0.505) = 0.71`. This means that if a true rating is 3.0 our model will predict that the recipe is anywhere from 2.3 to 3.7 stars. This model is not great because there is such a large variance in the predictions. Part of this inaccuracy is due to the training data having ratings skewed heavily towards 4 and 5 stars. With transformations in the next steps, this model can be improved.
+As stated, we evaluated the performance of our model using Mean Squared Error. The MSE of this model is approximately 0.505. In the context of the rating scale, our model has a prediction error of about `sqrt(0.505) = 0.71`. This means that if a true rating is 3.0, our model will predict that the recipe is anywhere from 2.3 to 3.7 stars. This model is not optimal due to the large variance in possible predictions. Part of this inaccuracy is due in part to the highly skewed training data. With the transformations used in the next steps, we improved the overall model prediction accuracy.
 
 # Final Model
-In the baseline model, we used the raw values of `n_ingredients`, `minutes`, and `n_steps` in order to predict the `rating`. This method was not robust to the large outliers that we found in the dataset. In order to account for this, we added features that stanardized the data while still keeping the complexity of a recipe intact. 
+In the baseline model, we used the raw values of `n_ingredients`, `minutes`, and `n_steps` to predict the `rating`. This method was not robust to the large outliers that we found in the dataset. In order to account for this, we added features that standardized the data while still keeping the complexity of a recipe intact. 
 
 **New Features**
-1. **QuantitativeTransformer**: We utlized this transformer on all of the columns from the baseline model to account for the extreme outliers. This created a uniform distribution of the data which was crucial for decreasing MSE. MSE is very susceptible to large outliers, and this transformer improved our results.
+1. **QuantitativeTransformer**: We utilized this transformer on all of the columns from the baseline model to account for the extreme outliers. This created a uniform distribution of the data, which was crucial for decreasing MSE. MSE is very susceptible to large outliers, and this transformer improved our results.
 2. **PolynomialFeatures**: A recipe’s complexity, as we defined it, doesn’t affect ratings in a strictly linear way. Very basic recipes might appeal to cooks looking for quick meals, while highly intricate ones cater to enthusiasts willing to invest more time. By adding polynomial terms, our model can flexibly fit these subtler patterns instead of forcing a purely linear relationship.
 
 **Modeling Algorithm & Hyperparameters**:
@@ -87,3 +96,10 @@ We decided to stick with the Linear Regression model because our newly added fea
 
 **Performance Enhancements**:
 As stated previously, our baseline model achieved an MSE of 0.505. Our new model achieved a modest improvement, reducing the MSE to 0.503. This final model adjusts for outliers, which was the main factor in decreasing the MSE, and produces predictions that are more accurate relative to the true center of the data. Moving forward, this outlier‑robust approach can be extended with additional regularization or alternative loss functions to further enhance model stability and predictive performance.
+
+ <iframe
+ src="assests/finalVis.html"
+ width="800"
+ height="600"
+ frameborder="0"
+ ></iframe>

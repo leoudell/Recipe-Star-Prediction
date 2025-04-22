@@ -1,8 +1,6 @@
+# Complexity of Recipes Effect on Ratings 
 **Authors:** Sophia Papadopoulos and Leo Udell
-
 **Emails:** spapadop@umich.edu & leoudell@umich.edu
-
-**Website URL:** https://leoudell.github.io/recipe-star-prediction/
 
 # Introduction 
 Picture this. You come home from a long day at work at the world's best data science company. All you want is a quick bite, but what are the odds this meal will be 5 stars? What is the relation between complexity and star ratings? This analysis explores a dataset of over 730,000 reviews on food.com to determine the relationship between highly rated recipes and recipe complexity. We have defined how complex a recipe can be based on how long it takes to prep and cook, the number of different ingredients, and the number of steps. By analyzing this complexity, we can help chefs optimize the complexity of their recipes for better ratings and different audiences.
@@ -25,9 +23,9 @@ Picture this. You come home from a long day at work at the world's best data sci
 1. The Food.com data came in two separate CSV files, one for the recipes and one for the ratings. We performed an inner join of the recipes and ratings CSVs on the recipe_id field to ensure every rating in our merged set had a corresponding recipe record.
 2. We removed columns that were not needed for modeling like rating text and written steps. After column drops, we checked for NaNs across all remaining fields and found none. However, some ratings had 0 as a rating value; we dropped those rows before training.
 3. Our dataframe started around 731,000 rows with 17 columns, and we ended with 220,000 rows with 5 columns after cleaning.
+
 ## Univariate Analysis
 This plot shows the distribution of ratings between recipes. As shown by the plot, most of the recipes have a 5-star rating. There are also a few recipes with a 0 rating, indicating that the user did not leave a rating for their posted comment. This does not mean that the user rated the recipe poorly, but that they chose not to rate the recipe. Given our goal, keeping these 0-star ratings would give inaccurate final results, so we chose to drop these recipes from our dataset. 
-
  <iframe
  src="assests/uniAnalysis.html"
  width="800"
@@ -37,16 +35,13 @@ This plot shows the distribution of ratings between recipes. As shown by the plo
  
 ## Bivariate Analysis
 This plot measures the average rating, number of steps, and the number of ingredients in each recipe. Typically, as the number of steps increases, so does the preparation time for the recipe. Likewise, when the number of steps increase, so does the number of ingredients. 
-
   <iframe
  src="assests/bivAnalysisPT2.html"
  width="800"
  height="600"
  frameborder="0"
  ></iframe>
-
 This plot measures the average rating, number of steps, and minutes to prepare each recipe in the dataset. Both plots are heavily skewed to the left, with most recipes not taking very long; however, there are a few recipes that take over 200,000 minutes. 
-
   <iframe
  src="assests/bivAnalysis.html"
  width="800"
@@ -56,7 +51,6 @@ This plot measures the average rating, number of steps, and minutes to prepare e
  
 ## Interesting Aggregates
 When constructing the bivariate analysis of the dataset, we were curious about the recipes with the longest preparation time. We came across one recipe with a strange title. Taking over 1 million minutes, "How to Preserve a Husband" has 2 ingredients (cream and peaches) and 2 five-star reviews. 
-
 **Top 5 Longest Recipes:** 
 
 | name | minutes | n_steps | n_ingredients | rating|
@@ -97,9 +91,4 @@ We decided to stick with the Linear Regression model because our newly added fea
 **Performance Enhancements**:
 As stated previously, our baseline model achieved an MSE of 0.505. Our new model achieved a modest improvement, reducing the MSE to 0.503. This final model adjusts for outliers, which was the main factor in decreasing the MSE, and produces predictions that are more accurate relative to the true center of the data. Moving forward, this outlier‑robust approach can be extended with additional regularization or alternative loss functions to further enhance model stability and predictive performance.
 
- <iframe
- src="assests/finalVis.html"
- width="800"
- height="600"
- frameborder="0"
- ></iframe>
+**Model Preformace Plots**

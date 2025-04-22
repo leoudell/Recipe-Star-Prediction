@@ -1,4 +1,4 @@
-# **How to Predict Recipe Ratings Based on Recipe Complexity** 
+# How to Predict Recipe Ratings Based on Recipe Complexity
 **Authors:** Sophia Papadopoulos and Leo Udell <br>
 **Emails:** spapadop@umich.edu & leoudell@umich.edu
 

@@ -1,4 +1,4 @@
-# Complexity of Recipes Effect on Ratings 
+##Complexity of Recipes Effect on Ratings 
 **Authors:** Sophia Papadopoulos and Leo Udell <br>
 **Emails:** spapadop@umich.edu & leoudell@umich.edu
 

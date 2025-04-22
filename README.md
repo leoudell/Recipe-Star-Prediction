@@ -1,4 +1,4 @@
-## Complexity of Recipes Effect on Ratings 
+
 **Authors:** Sophia Papadopoulos and Leo Udell <br>
 **Emails:** spapadop@umich.edu & leoudell@umich.edu
 
@@ -94,13 +94,13 @@ As stated previously, our baseline model achieved an MSE of 0.505. Our new model
 **Model Performance Plots**:
 To model our model's performance, we needed to keep one of the variables constant. Pictured below are 3D plots to help visualize performance when one variable is kept at the constant median of that variable. Some interesting points provided by these plots are that when steps are held constant, the model performs poorly when minutes are low, and there are 10 ingredients. It could be true that recipes advertising short preparation times but demanding many ingredients may frustrate users, or low-minute, 10-ingredient recipes are rare. Another interesting point is that the model performs best when minutes are kept consistent and ingredients and steps are varied. This is most likely due to the large time-based outliers present in the data. Under these conditions, it performs worse when there are few steps and few ingredients, suggesting that users do not look for or make incredibly simple recipes, such as a baked potato or cereal.
 
-  <iframe
- src="assests/finMConstSTEPS.html"
+   <iframe
+ src="assests/finalVis.html"
  width="800"
  height="600"
  frameborder="0"
  ></iframe>
- 
+
    <iframe
  src="assests/finMConstING.html"
  width="800"

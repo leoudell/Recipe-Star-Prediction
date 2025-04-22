@@ -43,7 +43,7 @@ This plot measures the average rating, number of steps, and number of ingredient
  ></iframe>
 This plot measures the average rating, number of steps, and minutes to prepare each recipe in the dataset. Both plots are heavily skewed to the left, with most recipes not taking very long; however, there are a few recipes that take over 200,000 minutes. 
   <iframe
- src="assests/bivAnalysis.html"
+ src="assests/NEWBI2.html"
  width="800"
  height="600"
  frameborder="0"
